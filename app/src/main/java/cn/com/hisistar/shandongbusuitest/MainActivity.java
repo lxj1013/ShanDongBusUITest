@@ -8,16 +8,23 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView lineNumTv;
+    private TextView firstStationTv;
+    private TextView endStationTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*AssetManager mgr = getAssets();
-        Typeface tf = Typeface.createFromAsset(mgr, "fonts/STXINGKA.TTF");
-        TextView textView = findViewById(R.id.helloworld);
-        textView.setTypeface(tf);
-        textView.setTextSize(30);
-        textView.setText("公交南站城东公交总站");*/
+
+        firstStationTv = findViewById(R.id.first_station_tv);
+        endStationTv = findViewById(R.id.end_station_tv);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/STXINGKA.TTF");
+
+        firstStationTv.setTypeface(tf);
+        endStationTv.setTypeface(tf);
+
 
     }
 }
