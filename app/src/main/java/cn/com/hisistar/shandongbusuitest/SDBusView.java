@@ -168,8 +168,8 @@ public class SDBusView extends View {
         super.onDraw(canvas);
         canvas.drawColor(Color.WHITE);
         cleanAll();
-        initStations();
-        drawCoordinate(canvas);
+
+//        drawCoordinate(canvas);
 
 
         /*if ((stopState == IN_STOP) && (inStopFlag == 0)) {
@@ -186,10 +186,10 @@ public class SDBusView extends View {
             inStopFlag = 0;
             return;
         }*/
-
-        drawLine(canvas);
-
         mTotalStation = mBusStationList.size();
+        if (mTotalStation<3)
+            return;
+        drawLine(canvas);
 
         drawCircleWithStroke(canvas, mTotalStation);
 
@@ -751,7 +751,7 @@ public class SDBusView extends View {
         mBusStationList = new ArrayList<>();
         mCirclePointList = new ArrayList<>();
         mTextPointList = new ArrayList<>();
-
+        initStations();
     }
 
     private void cleanAll() {
@@ -768,7 +768,7 @@ public class SDBusView extends View {
         mCirclePath1.reset();
         mCirclePath2.reset();
 
-        mBusStationList.clear();
+//        mBusStationList.clear();
         mCirclePointList.clear();
         mTextPointList.clear();
 
@@ -776,7 +776,7 @@ public class SDBusView extends View {
 
 
     public void setBusStationList(List<BusStation> busStationList) {
-        mBusStationList = busStationList;
+        this.mBusStationList = busStationList;
         invalidate();
     }
 
